@@ -9,7 +9,7 @@
     log_dest stdout
 
 run:
-docker run -dp 1883:1883 -v ../PATHYOU MOSQUITTO FOLDER/:/mosquitto/ --restart always --name NAME_IN_DOCKER eclipse-mosquitto
+docker run -dp 1883:1883 -v ../PATHYOU_MOSQUITTO_FOLDER/:/mosquitto/ --restart always --name NAME_IN_DOCKER eclipse-mosquitto
 
 request lib python :
 pip install paho-mqtt
