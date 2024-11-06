@@ -17,17 +17,18 @@ client.on_connect = on_connect
 client.connect(broker_hostname, port)
 client.loop_start()
 
-topic = "test"
+topic = "test" #topic ที่ต้องการส่ง
 msg_count = 0
 
 try:
     while msg_count < 10:
         time.sleep(1)
         msg_count += 1
-        result = client.publish(topic, msg_count)
-        status = result.rc
-        if status == mqtt.MQTT_ERR_SUCCESS:
-            print(f"Message {msg_count} published to topic {topic}")
+        massage = f"hello world {msg_count}"
+        result = client.publish(topic, massage) #ใช้ส่งข้อความกับ topicที่เลือก
+        status = result[0]
+        if status == 0:
+            print(f"{massage} to topic {topic}")
         else:
             print(f"Failed to send message to topic {topic}")
             if not client.is_connected():

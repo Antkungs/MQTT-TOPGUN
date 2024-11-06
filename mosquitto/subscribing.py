@@ -4,7 +4,7 @@ import time
 def on_connect(client, userdata, flags, return_code):
     if return_code == 0:
         print("Connected successfully")
-        client.subscribe("hello/a")
+        client.subscribe("hello/a") #topic ที่ต้องการรับ
     else:
         print(f"Not connected, return code: {return_code}")
         client.failed_connect = True
